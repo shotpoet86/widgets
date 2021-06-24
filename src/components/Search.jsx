@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 const Search = () => {
+  /*utilizing useState hook [state,setState] = useState()*/
   const [term, setTerm] = useState('React');
   const [results, setResults] = useState([]);
 
+  
   useEffect(() => {
     const search = async () => {
       const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
@@ -34,6 +36,7 @@ const Search = () => {
     }
   }, [term]); //end of useEffect
 
+
   /*map through results and render*/
   const renderedResults = results.map((result) => {
     return (
@@ -53,6 +56,7 @@ const Search = () => {
       </div>
     );
   }); //end of renderResults
+
 
   /*return to ui*/
   return (

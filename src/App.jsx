@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 /*import Accordion from './components/Accordion';*/
 import Search from './components/Search';
+import Dropdown from './components/Dropdown';
 
 const items = [
   { title: 'What is react', content: 'React is a JavaScript library' },
@@ -15,11 +16,24 @@ const items = [
   },
 ];
 
+const optionArray = [
+  {
+    label: 'The color Red',
+    value: 'red',
+  },
+  { label: 'The color Yellow', value: 'yellow' },
+  {
+    label: 'the color Blue',
+    value: 'blue',
+  },
+];
+
 const App = () => {
   return (
     <div className="App">
       {/*<Accordion items={items} />*/}
-      <Search />
+      {/*<Search />*/}
+      <Dropdown options={optionArray} />
     </div>
   );
 };
