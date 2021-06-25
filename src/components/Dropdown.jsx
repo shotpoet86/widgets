@@ -1,10 +1,17 @@
 import React from 'react';
 
-const Dropdown = ({ options }) => {
-
+const Dropdown = ({ options, selected, onSelectedChange }) => {
   const renderedOptions = options.map((option) => {
+    /*prevent currently selected dropdown item from rendering*/
+    if (option.value === selected.value) {
+      return null;
+    }
     return (
-      <div key={option.value} className="item">
+      <div
+        key={option.value}
+        className="item"
+        onClick={() => onSelectedChange(option)}
+      >
         {option.label}
       </div>
     );
@@ -18,7 +25,9 @@ const Dropdown = ({ options }) => {
         </label>
         <div className="ui selection dropdown visible active">
           <i className="dropdown icon"></i>
-          <div className="text">Select color text</div>
+          <div className="text">
+            Current selected item is : {selected.label}
+          </div>
           <div className="menu visible transition">{renderedOptions}</div>
         </div>
       </div>
